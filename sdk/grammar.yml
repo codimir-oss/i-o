@@ -1,0 +1,56 @@
+# Codimir I/O Command Grammar (v0)
+# Define intents and patterns that map speech to actions.
+# Variables in <angle-brackets> are slots captured from speech.
+
+version: 0
+locale: en-US
+
+intents:
+  - name: open_file
+    description: Open a file in the IDE
+    patterns:
+      - "open file <path>"
+      - "open <path>"
+    slots:
+      - name: path
+        type: string
+
+  - name: run_tests
+    description: Run project tests
+    patterns:
+      - "run tests"
+      - "test project"
+
+  - name: create_ticket
+    description: Create a ticket with title (and optional description)
+    patterns:
+      - "create ticket <title>"
+      - "new ticket <title>"
+      - "Codimir new ticket <title>"
+    slots:
+      - name: title
+        type: string
+
+  - name: run_task
+    description: Run a named task/command
+    patterns:
+      - "run task <task>"
+      - "execute <task>"
+    slots:
+      - name: task
+        type: string
+
+allowlist:
+  # Action names allowed to execute on this host
+  - open_file
+  - run_tests
+  - create_ticket
+  - run_task
+
+hotword:
+  enabled: true
+  words: ["Codimir"]
+
+logging:
+  enabled: true
+  path: "/tmp/codimir_io_action_log.jsonl"
