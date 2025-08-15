@@ -1,0 +1,19 @@
+name: Build Firmware
+on:
+  push:
+    paths:
+      - 'firmware/**'
+  pull_request:
+    paths:
+      - 'firmware/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install toolchain (placeholder)
+        run: |
+          echo "Install MCU toolchain here"
+      - name: Build
+        run: |
+          make -C firmware || true

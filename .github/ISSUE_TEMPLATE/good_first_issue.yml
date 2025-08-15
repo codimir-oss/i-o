@@ -1,0 +1,13 @@
+name: Good First Issue
+description: Starter task for newcomers
+title: "[GFI]: "
+labels: [good first issue]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing! This is a beginner-friendly task.
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
